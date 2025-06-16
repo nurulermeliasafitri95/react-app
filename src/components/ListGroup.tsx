@@ -1,14 +1,16 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["kedah", "perlis", "selangor", "putrajaya"];
-
+interface Props {
+  items: string[];
+  heading: string;
+}
+function ListGroup({ items, heading }: Props) {
   //State hook is a function to tap into built in features in React
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No item</p>}
       <ul className="list-group">
         {items.map((item, index) => (
